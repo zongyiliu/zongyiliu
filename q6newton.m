@@ -2,6 +2,7 @@
 vals = []; steps = [];
 x = zeros(n,1);
 for iter = 1:MAXITERS
+
 val = -sum(log(1-A*x)) - sum(log(1+x)) - sum(log(1-x));
 vals = [vals, val];
 d = 1./(1-A*x);
