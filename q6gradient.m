@@ -22,9 +22,16 @@ GRADTOL = 1e-3;
 % minimize(log_sum_exp(A*x))
 % cvx_end
 
+
+
+
 % Generate random problem
 A = randn(m,n);
 % gradient method
+
+% function [x,fval,tvec,k]=q930gradient(A)
+% Then I used vals to represent fval, and steps for tvec
+
 vals = []; steps = [];
 x = zeros(n,1);
 for iter = 1:MAXITERS
