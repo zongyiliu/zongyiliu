@@ -31,3 +31,7 @@ figure(4)
 plot([1:length(steps)], steps, '-', [1:length(steps)], steps, 'o');
 axis([0, length(steps), 0, 1.1]);
 xlabel('x'); ylabel('z');
+
+
+% in the figures show the function values and step lengths versus iteration number for the same example.
+% Here we used alpha = 0.01 and beta = 0.5
