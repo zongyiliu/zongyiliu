@@ -23,20 +23,18 @@ GRADTOL = 1e-3;
 % cvx_end
 
 
-
-
 % Generate random problem
 A = randn(m,n);
 % gradient method
 
 % function [x,fval,tvec,k]=q930gradient(A)
-% Then I used vals to represent fval, and steps for tvec
+% Then I used fval to represent values, and tvec for tvec
 
-vals = []; steps = [];
+fval = []; tvec = [];
 x = zeros(n,1);
 for iter = 1:MAXITERS
 val = -sum(log(1-A*x)) - sum(log(1+x)) - sum(log(1-x));
-vals = [vals, val];
+fval = [fval, val];
 d = 1./(1-A*x);
 grad = A'*d - 1./(1+x) + 1./(1-x);
 v = -grad;
@@ -52,7 +50,7 @@ val + ALPHA*t*fprime )
 t = BETA*t;
 end;
 x = x+t*v;
-steps = [steps,t];
+tvec = [tvec,t];
 end;
 
 % Generate Figures
@@ -60,13 +58,13 @@ end;
 % The function value is gradrally decreasing as the step increases
 
 figure(1)
-semilogy([0:(length(vals)-2)], vals(1:length(vals)-1)-optval, '-');
+semilogy([0:(length(fval)-2)], fval(1:length(fval)-1)-optval, '-');
 xlabel('x'); ylabel('z');
 
 % From figure 2, we can see that the gradient is kept roughly at several fixed values, 0.001, 0.002, 0.004, and 0.008
 
 figure(2)
-plot([1:length(steps)], steps, ':',[1:length(steps)], steps, 'o');
+plot([1:length(tvec)], tvec, ':',[1:length(tvec)], tvec, 'o');
 xlabel('x'); ylabel('z');
 
 
