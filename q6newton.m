@@ -1,12 +1,12 @@
 % Newton method
 % function [x,fval,tvec,k]=q930gradient(A)
 
-vals = []; steps = [];
+fval = []; tvec = [];
 x = zeros(n,1);
 for iter = 1:MAXITERS
 
 val = -sum(log(1-A*x)) - sum(log(1+x)) - sum(log(1-x));
-vals = [vals, val];
+fval = [fval, val];
 d = 1./(1-A*x);
 grad = A'*d - 1./(1+x) + 1./(1-x);
 hess = A'*diag(d.^2)*A + diag(1./(1+x).^2 + 1./(1-x).^2);
@@ -22,22 +22,22 @@ val + ALPHA*t*fprime )
 t = BETA*t;
 end;
 x = x+t*v;
-steps = [steps,t];
+tvec = [tvec,t];
 end;
-optval = vals(length(vals));
+optval = fval(length(fval));
 
 % Generate figures
 
 % Here we can see that the function value decreases quite rapidly compared with gradient descent method
 figure(3)
-semilogy([0:(length(vals)-2)], vals(1:length(vals)-1)-optval, '-', ...
-[0:(length(vals)-2)], vals(1:length(vals)-1)-optval, 'o');
+semilogy([0:(length(fval)-2)], fval(1:length(fval)-1)-optval, '-', ...
+[0:(length(fval)-2)], fval(1:length(fval)-1)-optval, 'o');
 xlabel('x'); ylabel('z');
 
 % Each step it roughly takes value 1
 figure(4)
-plot([1:length(steps)], steps, '-', [1:length(steps)], steps, 'o');
-axis([0, length(steps), 0, 1.1]);
+plot([1:length(tvec)], tvec, '-', [1:length(tvec)], tvec, 'o');
+axis([0, length(tvec), 0, 1.1]);
 xlabel('x'); ylabel('z');
 
 
