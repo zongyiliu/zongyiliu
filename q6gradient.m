@@ -1,11 +1,16 @@
+% Generate random number for test, which would also be used in the next m. file
+
 randn('state',1);
 m=200;
 n=100;
+
+
 ALPHA = 0.01;
 BETA = 0.5;
 MAXITERS = 1000;
 NTTOL = 1e-8;
 GRADTOL = 1e-3;
+
 % generate random problem
 A = randn(m,n);
 % gradient method
@@ -37,3 +42,6 @@ xlabel('x'); ylabel('z');
 figure(2)
 plot([1:length(steps)], steps, ':',[1:length(steps)], steps, 'o');
 xlabel('x'); ylabel('z');
+
+
+% The figures show the function values and step lengths versus iteration number for an example with m = 200, n = 100.
