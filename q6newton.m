@@ -1,4 +1,6 @@
 % Newton method
+% function [x,fval,tvec,k]=q930gradient(A)
+
 vals = []; steps = [];
 x = zeros(n,1);
 for iter = 1:MAXITERS
