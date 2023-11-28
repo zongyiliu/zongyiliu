@@ -4,6 +4,10 @@ randn('state',1);
 m=200;
 n=100;
 
+% For the gradient and Hessian for the function
+% f(x) = log(sum(exp(a_i' * x))),
+% where a_i' is row i in the matrix A
+
 
 ALPHA = 0.01;
 BETA = 0.5;
@@ -11,7 +15,14 @@ MAXITERS = 1000;
 NTTOL = 1e-8;
 GRADTOL = 1e-3;
 
-% generate random problem
+% Do it in CVX
+% randn('seed',0); m=500; n=100; A = randn(m,n);
+% cvx_begin
+% variable x(n)
+% minimize(log_sum_exp(A*x))
+% cvx_end
+
+% Generate random problem
 A = randn(m,n);
 % gradient method
 vals = []; steps = [];
