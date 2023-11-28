@@ -47,12 +47,20 @@ end;
 x = x+t*v;
 steps = [steps,t];
 end;
+
+% Generate Figures
+% From figure 1, we can see that the relationship between function values and step lengths versus iteration number.
+% The function value is gradrally decreasing as the step increases
+
 figure(1)
 semilogy([0:(length(vals)-2)], vals(1:length(vals)-1)-optval, '-');
 xlabel('x'); ylabel('z');
+
+% From figure 2, we can see that the gradient is kept roughly at several fixed values, 0.001, 0.002, 0.004, and 0.008
+
 figure(2)
 plot([1:length(steps)], steps, ':',[1:length(steps)], steps, 'o');
 xlabel('x'); ylabel('z');
 
 
-% The figures show the function values and step lengths versus iteration number for an example with m = 200, n = 100.
+% Figures show an example with m = 200, n = 100.
