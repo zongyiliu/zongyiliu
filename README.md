@@ -1,1 +1,5 @@
-Deliver me from bloodguilt, O God, the God of my salvation, and my tongue will sing of Your righteousness.
+The sacrifices of God are a broken spirit;
+
+a broken and a contrite heart,
+
+O God, You will not despise.
